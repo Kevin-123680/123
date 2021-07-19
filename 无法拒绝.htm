@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>七夕喔</title>
+	</head>
+	<body>
+		<!-- 这是大标题头 -->
+		<h1 style="position:absolute; left:280px; top:155px; width:auto; height:210px;">你爱我吗?</h1>
+		<!-- 这是第一个不会动的按钮 -->
+		<div id="By" style="position:absolute; left:285px; top:235px;height:30px;">
+			<input type="button" value=" 爱你！ " onclick="f1()" />
+			<!-- onclick() 若鼠标点击标签，则会触发函数。 -->
+		</div>
+		<!-- 这是第二个到处跑的按钮 -->
+		<div id="Bn" style="position:absolute; left:360px; top:235px;">
+			<input type="button" value=" 爱个锤子！ " onmouseover="f()" />
+			<!-- onmouseover() 若鼠标移动到标签上，则会触发函数。 -->
+		</div>
+		
+		<!-- 这是页面的javaScript代码 -->
+		<script type="text/javascript">
+			/* onclick()点击：是的！按钮弹出警示框 */
+			/* alert():显示带有一条指定消息和一个OK（确认）按钮的警告框 */
+			/* confirm():用于显示一个带有指定消息和OK（确认）及取消按钮的对话框。一般作为判断条件，可以返回true与false*/
+			/* prompt(String，Default String):用于显示可提示用户进行输入的对话框。可以输入两个参数，一个显示文本，一个输入框默认值*/
+			function f1() {
+				alert("爱你爱你爱你爱你爱你~~")
+			}
+			/* 定义一个标记判断会动的按钮，以此来改变div的坐标 */
+			var flag = 1;
+			
+			/* onmouseover()鼠标移动到标签上，就开始改变其样式 */
+			function f() {
+				/* 获取第二个按钮的id，方便以后改变样式 */
+				var Bn = document.getElementById('Bn');
+				/* 这里有一个“或”判断 如果左边body标签的（clientWidth）获取实际宽高为空 */
+				/* 则 返回第二 html 标签的（clientWidth）获取实际宽高 */
+				var aWidth = document.body.clientWidth || document.documentElement.clientWidth;
+				var aHeight = document.body.clientHeight || document.documentElement.clientHeight;
+				/* Math.floor() 一个向下取整的函数。例如： Math.floor(1.89) 结果为 1 */
+				/* Math.random() 一个返回随机数 介于 0 与 1 之间。 */
+				var sJs1 = Math.floor(Math.random() * aHeight);
+				var sJs2 = Math.floor(Math.random() * aWidth);
+				
+				/* 这里就是不断的if else 改变id为“Bn”的按钮的样式，让他到处移动柜 */
+				/* Bn.style表示按钮的样式指针，后面可以紧接着各种样式 color、top吧啦吧啦巴拉 */
+				if (flag == 1) {
+					Bn.style.top = sJs1 + 'px';
+					Bn.style.left = sJs2 + 'px';
+					flag = 2;
+				} else if (flag == 2) {
+					Bn.style.top = sJs1 + 'px';
+					Bn.style.left = sJs2 + 'px';
+					flag = 3;
+				} else if (flag == 3) {
+					Bn.style.top = 235 + 'px';
+					Bn.style.left = 286 + 'px';
+					flag = 4;
+				} else if (flag == 4) {
+					Bn.style.top = 235 + 'px';
+					Bn.style.left = 360 + 'px';
+					flag = 5;
+				} else if (flag == 5) {
+					Bn.style.top = 135 + 'px';
+					Bn.style.left = 460 + 'px';
+					flag = 6;
+				} else if (flag == 6) {
+					Bn.style.top = 335 + 'px';
+					Bn.style.left = 300 + 'px';
+					flag = 7;
+				} else if (flag == 7) {
+					Bn.style.top = 135 + 'px';
+					Bn.style.left = 60 + 'px';
+					flag = 1;
+				}
+			}
+		</script>
+	</body>
+</html>
